@@ -25,10 +25,17 @@ jobs:
           pip install buildozer
           pip install cython==0.29.37
 
-      - name: Install Android dependencies
+      - name: Install system packages
         run: |
           sudo apt update
-          sudo apt install -y zip unzip openjdk-17-jdk
+          sudo apt install -y \
+            zip \
+            unzip \
+            openjdk-17-jdk \
+            autoconf \
+            automake \
+            libtool \
+            pkg-config
 
       - name: Accept Android licenses
         run: |
@@ -36,7 +43,6 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer android clean
           buildozer android debug
 
       - name: Upload APK
