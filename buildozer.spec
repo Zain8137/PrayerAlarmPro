@@ -7,6 +7,8 @@
 
 title = Prayer Alarm Pro
 
+version = 1.0.0
+
 package.name = prayeralarm
 
 package.domain = org.prayeralarm
