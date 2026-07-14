@@ -14,12 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
 
       - name: Install dependencies
         run: |
@@ -27,11 +25,9 @@ jobs:
           pip install buildozer
           pip install cython==0.29.37
 
-
       - name: Build APK
         run: |
           buildozer android debug
-
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
