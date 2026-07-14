@@ -42,16 +42,15 @@ fullscreen = 0
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions.html for all the supported syntaxes and properties)
-#android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
-
+android.permissions = android.permission.INTERNET,android.permission.WAKE_LOCK,android.permission.RECEIVE_BOOT_COMPLETED,android.permission.VIBRATE
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 33
+android.api = 35
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 24
+android.minapi = 24
 
 # (int) Android SDK version to use
 #android.sdk = 20
@@ -271,7 +270,7 @@ android.allow_backup = True
 #p4a.url =
 
 # (str) python-for-android fork to use in case if p4a.url is not specified, defaults to upstream (kivy)
-#p4a.fork = kivy
+p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
 #p4a.branch = master
