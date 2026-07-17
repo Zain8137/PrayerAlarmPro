@@ -24,6 +24,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt update
+
           sudo apt install -y \
             git \
             zip \
@@ -52,6 +53,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install Cython==0.29.37
           pip install buildozer
+
+
+      - name: Accept Android SDK licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+
+      - name: Install Android SDK packages
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "build-tools;37.0.0"
 
 
       - name: Cache Buildozer
