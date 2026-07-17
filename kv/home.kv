@@ -22,7 +22,7 @@
 
             Color:
 
-                rgba: 0,0,0,0.55
+                rgba: 0, 0.18, 0.12, 0.75
 
 
 
@@ -73,7 +73,7 @@
 
                     theme_text_color: "Custom"
 
-                    text_color: 0.8,1,0.8,1
+                    text_color: 0.45,1,0.65,1
 
                     size_hint_y: None
 
@@ -107,7 +107,7 @@
                 MDCard:
 
 
-                    orientation: "horizontal"
+                    orientation: "vertical"
 
                     padding: dp(10)
 
@@ -121,8 +121,8 @@
 
                     elevation: 8
 
-                    md_bg_color: 0.85,0.65,0.13,1
-                    line_color: 0.85, 0.65, 0.13, 1
+                    md_bg_color: 0.12,0.35,0.25,0.95
+                    line_color: 0.90,0.75,0.20,1
                     line_width: dp(2)
                     radius: [25]
 
@@ -161,26 +161,18 @@
 
                         theme_text_color: "Custom"
 
-                        text_color: 0.4,1,0.6,1
+                        text_color: 0.95,0.85,0.25,1
 
 
 
 
                     MDLabel:
-
-
                         text: "Today's Prayer Times"
-    
                         halign: "center"
-    
                         font_style: "H6"
-    
                         theme_text_color: "Custom"
-    
                         text_color: 1,1,1,1
-    
                         size_hint_y: None
-    
                         height: dp(40)
 
 
@@ -202,7 +194,7 @@
 
                     radius: [20]
 
-                    md_bg_color: 0,0,0,0.45
+                    md_bg_color: 0.10,0.22,0.18,0.92
 
 
 
@@ -364,6 +356,17 @@
                             size_hint_y: None
         
                             height: dp(40)
+
+
+
+                        MDLabel:
+                            text: "🔔 Alarm Settings"
+                            halign: "center"
+                            font_style: "H6"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+                            size_hint_y: None
+                            height: dp(40)    
         
 
 
@@ -384,7 +387,7 @@
 
                     radius: [20]
 
-                    md_bg_color: 0,0,0,0.45
+                    md_bg_color: 0.10,0.22,0.18,0.92
 
 
 
@@ -537,29 +540,16 @@
 
 
                 Spinner:
-
-
                     id: adhan_spinner
-
                     text: root.selected_sound
-
-
-                    values:
-
-
-                        "azan1.mp3"
-
-
-
-
+                    values: ("azan1.mp3", "azan2.mp3", "azan3.mp3")
+                
                     size_hint_y: None
-
                     height: dp(50)
-
-
+                
                     on_text:
-
                         root.change_sound(self.text)
+                
 
 
 
@@ -567,11 +557,9 @@
 
                 MDRaisedButton:
                     text: "SAVE SETTINGS"
-                    pos_hint:{"center_x": 0.5, "center_y": 0.5}
-                    size_hint: None, None 
-                    size_hint_y: None
-                    height: dp(50)
-
-
+                    pos_hint: {"center_x": 0.5}
+                    size_hint: None, None
+                    size: dp(220), dp(50)
+                
                     on_release:
-                        root.save_alarm_settings()        
+                        root.save_alarm_settings()       
